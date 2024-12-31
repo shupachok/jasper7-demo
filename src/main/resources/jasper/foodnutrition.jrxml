@@ -1,0 +1,173 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="main" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7dfd6765-0919-462f-bedf-dc6a87234cef">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<style name="Table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="Table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+			<topPen lineWidth="0.5" lineColor="#000000"/>
+			<leftPen lineWidth="0.5" lineColor="#000000"/>
+			<bottomPen lineWidth="0.5" lineColor="#000000"/>
+			<rightPen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<dataset name="FoodDataset" uuid="88d661d3-c63f-42a5-9cbf-08c8fbc38e21">
+		<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+		<query language="sql"><![CDATA[]]></query>
+		<field name="foodName" class="java.lang.String"/>
+		<field name="mealtime" class="java.lang.String"/>
+		<field name="fat" class="java.lang.Integer"/>
+		<field name="protein" class="java.lang.Integer"/>
+		<field name="carb" class="java.lang.Integer"/>
+		<variable name="tatalFat" calculation="Sum" class="java.lang.Integer">
+			<expression><![CDATA[$F{fat}*2]]></expression>
+			<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		</variable>
+		<variable name="totalProtein" calculation="Sum" class="java.lang.Integer">
+			<expression><![CDATA[$F{protein}]]></expression>
+			<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		</variable>
+		<variable name="totalCarb" calculation="Sum" class="java.lang.Integer">
+			<expression><![CDATA[$F{carb}]]></expression>
+			<initialValueExpression><![CDATA[0]]></initialValueExpression>
+		</variable>
+	</dataset>
+	<parameter name="foodDataset" class="net.sf.jasperreports.engine.data.JRBeanCollectionDataSource"/>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<detail>
+		<band height="265" splitType="Stretch">
+			<element kind="component" uuid="fae66eb1-9e42-406a-8cb4-f2c86272f110" x="130" y="40" width="300" height="200">
+				<component kind="table">
+					<datasetRun uuid="3ac04605-3fda-44c3-ab38-ec79dfd848eb" subDataset="FoodDataset">
+						<dataSourceExpression><![CDATA[$P{foodDataset}]]></dataSourceExpression>
+					</datasetRun>
+					<column kind="single" uuid="b7cc34db-aff9-44f2-948e-e9045a32b65c" width="70">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="63cc8960-b10a-4a5c-aad7-2767c6a7a4ea" x="0" y="0" width="70" height="30" hTextAlign="Center">
+								<text><![CDATA[Food name]]></text>
+							</element>
+						</columnHeader>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="2dc31bb8-8347-4df0-b877-dab0d918714c" x="0" y="0" width="70" height="30">
+								<expression><![CDATA[$F{foodName}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column1"/>
+					</column>
+					<column kind="single" uuid="52ea70c7-d4a4-4d7a-bbda-661cf4348069" width="60">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="09532e8c-98d6-4550-8be1-819e9bcbcb90" x="0" y="0" width="60" height="30" hTextAlign="Center">
+								<text><![CDATA[Meal Time]]></text>
+							</element>
+						</columnHeader>
+						<columnFooter height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="3adf4296-8057-44eb-bb72-4c51050dae65" x="0" y="0" width="60" height="30">
+								<text><![CDATA[Total Cal]]></text>
+							</element>
+						</columnFooter>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="f2e69c86-aec2-4f62-876f-a0318c257b1a" x="0" y="0" width="60" height="30">
+								<expression><![CDATA[$F{mealtime}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column2"/>
+					</column>
+					<column kind="single" uuid="ee274c36-0b24-4a4a-b0f9-e4e2213a1606" width="40">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="0522bd74-d557-433f-a42d-ec69e0714652" x="0" y="0" width="40" height="30" hTextAlign="Center">
+								<text><![CDATA[Fat]]></text>
+							</element>
+						</columnHeader>
+						<columnFooter height="30" rowSpan="1" style="Table_CH">
+							<element kind="textField" uuid="2b3abc0f-d0aa-4a52-a2c0-245f65322393" x="0" y="0" width="40" height="30">
+								<expression><![CDATA[$V{tatalFat}]]></expression>
+							</element>
+						</columnFooter>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="bd61560f-d8ac-4aa5-92ca-14547dbefc50" x="0" y="0" width="40" height="30">
+								<expression><![CDATA[$F{fat}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column3"/>
+					</column>
+					<column kind="single" uuid="6288fd65-c4ed-4398-a530-217a69c85c5c" width="40">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="70443801-ebce-49a3-8140-dafbce9c8a18" x="0" y="0" width="40" height="30" hTextAlign="Center">
+								<text><![CDATA[Protein]]></text>
+							</element>
+						</columnHeader>
+						<columnFooter height="30" rowSpan="1" style="Table_CH">
+							<element kind="textField" uuid="6ddc3b6e-f790-4fe5-ac1f-6d96b5bb223f" x="0" y="0" width="40" height="30">
+								<expression><![CDATA[$V{totalProtein}]]></expression>
+							</element>
+						</columnFooter>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="154ed862-57c5-455b-b5d2-d43457fd7df9" x="0" y="0" width="40" height="30">
+								<expression><![CDATA[$F{protein}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column4"/>
+					</column>
+					<column kind="single" uuid="8ab9f74e-d101-4499-b637-4be4fcaa638f" width="40">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="4f878865-1d03-4648-b5ae-129efa6640e9" x="0" y="0" width="40" height="30" hTextAlign="Center">
+								<text><![CDATA[Carb]]></text>
+							</element>
+						</columnHeader>
+						<columnFooter height="30" rowSpan="1" style="Table_CH">
+							<element kind="textField" uuid="eec67c91-0a4c-4ad7-84ba-1da4bede4ff3" x="0" y="0" width="40" height="30">
+								<expression><![CDATA[$V{totalCarb}]]></expression>
+							</element>
+						</columnFooter>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="e9a45678-28fd-45a1-b21f-30985c52f58f" x="0" y="0" width="40" height="30">
+								<expression><![CDATA[$F{carb}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column5"/>
+					</column>
+					<column kind="single" uuid="929be319-d799-4519-a933-1961c4d84059" width="50">
+						<columnHeader height="30" rowSpan="1" style="Table_CH">
+							<element kind="staticText" uuid="966164be-4667-44d1-a76b-69984bbbd27e" x="0" y="0" width="50" height="30" hTextAlign="Center">
+								<text><![CDATA[Total Cal]]></text>
+							</element>
+						</columnHeader>
+						<columnFooter height="30" rowSpan="1" style="Table_CH">
+							<element kind="textField" uuid="fbf448ed-a8a3-4df9-9cc8-a9ed4f176440" x="0" y="0" width="50" height="30">
+								<expression><![CDATA[$V{tatalFat}+$V{totalProtein}+$V{totalCarb}]]></expression>
+							</element>
+						</columnFooter>
+						<detailCell height="30" style="Table_TD">
+							<element kind="textField" uuid="d178d567-e049-421e-9b17-a49fe0c9566f" x="0" y="0" width="50" height="30">
+								<expression><![CDATA[$F{fat}+$F{protein}+$F{carb}]]></expression>
+							</element>
+						</detailCell>
+						<property name="com.jaspersoft.studio.components.table.model.column.name" value="Column6"/>
+					</column>
+				</component>
+				<property name="com.jaspersoft.studio.layout" value="com.jaspersoft.studio.editor.layout.VerticalRowLayout"/>
+				<property name="com.jaspersoft.studio.table.style.table_header" value="Table_TH"/>
+				<property name="com.jaspersoft.studio.table.style.column_header" value="Table_CH"/>
+				<property name="com.jaspersoft.studio.table.style.detail" value="Table_TD"/>
+			</element>
+		</band>
+	</detail>
+</jasperReport>

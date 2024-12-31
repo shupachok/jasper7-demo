@@ -1,0 +1,24 @@
+<!-- Created with Jaspersoft Studio version 7.0.1.final using JasperReports Library version 7.0.1-573496633c2b4074e32f433154b543003f7d2498  -->
+<jasperReport name="main" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b702ce33-b43a-4e8f-9b5c-37e1f20707d9">
+	<parameter name="foodReport" class="net.sf.jasperreports.engine.JasperReport"/>
+	<parameter name="foodReportParam" class="java.util.Map"/>
+	<query language="sql"><![CDATA[]]></query>
+	<background splitType="Stretch"/>
+	<title height="79" splitType="Stretch">
+		<element kind="staticText" uuid="491758ed-a6fb-4970-a6fc-15dcc9eaaa9c" x="200" y="20" width="158" height="31" fontSize="16.0" hTextAlign="Center">
+			<text><![CDATA[Nutrition Report]]></text>
+		</element>
+	</title>
+	<detail>
+		<band height="220" splitType="Stretch">
+			<element kind="subreport" uuid="4f9502a3-f5e7-4408-be76-077af784fc63" x="10" y="10" width="200" height="200">
+				<parametersMapExpression><![CDATA[$P{foodReportParam}]]></parametersMapExpression>
+				<dataSourceExpression><![CDATA[new JREmptyDataSource()]]></dataSourceExpression>
+				<expression><![CDATA[$P{foodReport}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="45" splitType="Stretch"/>
+	<pageFooter height="54" splitType="Stretch"/>
+	<summary height="42" splitType="Stretch"/>
+</jasperReport>
